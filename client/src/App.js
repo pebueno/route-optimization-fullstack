@@ -1,7 +1,17 @@
-import React from "react";
+import React, { Fragment } from "react";
+
+import InputClient from "./components/InputClient";
+import ListClient from "./components/ListClient";
 
 const App = () => {
-    return <div> This was made from scratch!</div>
+    return (
+        <Fragment>
+            <div className="container">
+                <InputClient />
+                <ListClient />
+            </div>
+        </Fragment>
+    );
 };
 
 export default App;

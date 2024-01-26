@@ -1,15 +1,26 @@
 const express = require('express');
+const cors = require('cors');
 
 const app = express();
 const port = process.env.PORT || 5000;
 const pool = require("./db");
 
 app.use(express.json());
+// Servimos o CORS para todas as rotas, dessa forma o frontend consegue se comunicar com um servidor diferente do cliente
+app.use(cors());
 
 // ROUTES
 app.get('/clients', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM clients');
+
+    let { search } = req.query;
+    if (search === undefined) search = '';
+
+    const result = await pool.query(
+      "SELECT * FROM clients WHERE name || ' ' || email || telephone ILIKE $1",
+      [`%${search}%`]
+    );
+
     res.json(result.rows);
   } catch (error) {
     console.error('Erro ao obter clientes:', error);
