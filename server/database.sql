@@ -2,7 +2,9 @@ CREATE DATABASE clients;
 
 CREATE TABLE clients (
   client_id SERIAL PRIMARY KEY,
-  name VARCHAR(255),
+  name VARCHAR(255) NOT NULL,
   email VARCHAR(255),
-  telephone VARCHAR(20)
+  telephone VARCHAR(20),
+  x INTEGER NOT NULL,
+  y INTEGER NOT NULL
 );

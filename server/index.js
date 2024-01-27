@@ -30,11 +30,11 @@ app.get('/clients', async (req, res) => {
 });
 
 app.post('/clients', async (req, res) => {
-  const { name, email, telephone } = req.body;
+  const { name, email, telephone, x, y } = req.body;
   try {
     const result = await pool.query(
-      'INSERT INTO clients (name, email, telephone) VALUES ($1, $2, $3) RETURNING *',
-      [name, email, telephone]
+      'INSERT INTO clients (name, email, telephone, x, y) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+      [name, email, telephone, x, y]
     );
     res.json(result.rows[0]);
   } catch (error) {
@@ -50,10 +50,10 @@ app.get('/bestroute', async (req, res) => {
       "SELECT * FROM clients;"
     );
 
-    const Clients = result.rows;
+    const clients = result.rows;
 
     // Encontra a rota mais curta.
-    const shortestRoute = findShortestRoute(Clients);
+    const shortestRoute = findShortestRoute(clients);
     res.json(shortestRoute);
   } catch (error) {
     console.error('Erro ao obter clientes:', error);
