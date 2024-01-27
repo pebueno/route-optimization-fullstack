@@ -29,7 +29,7 @@ Parabéns! O projeto está em execução. Acesse o navegador e vá para `http://
 
 ---
 
-**Nota:** Certifique-se de ter o Node.js e o PostgresSQL instalado no seu ambiente de desenvolvimento.
+**Nota:** Para o desenvolvimento do projeto foi utilizado a versão do Node.js `v21.2.0` e o PostgresSQL `v16.1`. Certifique-se de ter ambos instalados em seu ambiente de desenvolvimento.
 
 Se encontrar algum problema ou tiver dúvidas, sinta-se à vontade para entrar em contato.
 
