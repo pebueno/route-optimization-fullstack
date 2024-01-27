@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const InputClient = () => {
-    const [client, setClient] = useState({ name: '', email: '', telephone: '' });
+    const [client, setClient] = useState({ name: '', email: '', telephone: '', x: 0, y: 0 });
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -31,6 +31,10 @@ const InputClient = () => {
                 <input type="email" name="email" value={client.email} onChange={handleInputChange} className="form-control me-2" placeholder="E-mail" required />
 
                 <input type="tel" name="telephone" value={client.telephone} onChange={handleInputChange} className="form-control me-2" placeholder="Telefone" required />
+                <div className="input-group w-75">
+                    <input type="number" name="x" value={client.x} onChange={handleInputChange} className="form-control me-1" placeholder="0" required />
+                    <input type="number" name="y" value={client.y} onChange={handleInputChange} className="form-control me-2" placeholder="0" required />
+                </div>
 
                 <button type="submit" className="btn btn-success">Adicionar</button>
             </form>

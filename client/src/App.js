@@ -8,6 +8,7 @@ const App = () => {
         <Fragment>
             <div className="container">
                 <InputClient />
+                <hr className="my-4 border border-secondary-emphasis border-3 opacity-75" />
                 <ListClient />
             </div>
         </Fragment>
