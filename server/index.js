@@ -18,7 +18,7 @@ app.get('/clients', async (req, res) => {
     if (search === undefined) search = '';
 
     const result = await pool.query(
-      "SELECT * FROM clients WHERE name || ' ' || email || telephone || x || y  ILIKE $1",
+      "SELECT * FROM clients WHERE name || ' ' || email || telephone || x || y  ILIKE $1 ORDER BY name;",
       [`%${search}%`]
     );
 
